@@ -2,8 +2,7 @@
 % Please edit documentation in R/plot_matr.R
 \name{plot_matr}
 \alias{plot_matr}
-\title{plot_matr
-generate plots and fitted lines of significantly correlated variables for exploration.}
+\title{Correlation exploration using vectors or data frames}
 \usage{
 plot_matr(y, df, nrow = 2, ncol = 2, sig.level = 0.05, ylab = "")
 }
@@ -24,6 +23,10 @@ plot_matr(y, df, nrow = 2, ncol = 2, sig.level = 0.05, ylab = "")
 a matrix of plots
 }
 \description{
+plot_matr
+generate plots and fitted lines of significantly correlated variables for exploration.
+}
+\details{
 This function allows you to visualize the correlated variables with the selected variable. the fitted line is through regression
 It takes on an array or a data frame. if a vector is passed to the function it will be converted into a data frame
 Check if all the variables are numeric and not strings

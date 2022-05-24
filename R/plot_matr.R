@@ -12,7 +12,9 @@
 #' @param ncol specifies the number of plots to be inserted in a column
 #' @param sig.level specifies the number significant level default is 0.05
 #' @param ylab specifies the y-axis, which is the name of the respons variables defaults is the y names
-#'
+#' @title Correlation exploration using vectors or data frames
+#' @export
+#' @author Richard Magala, 2022
 #' @return  a matrix of plots
 plot_matr <- function(y, df, nrow =2, ncol= 2, sig.level = 0.05, ylab = ""){
   if(!is.data.frame(df)){

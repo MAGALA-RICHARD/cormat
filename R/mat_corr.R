@@ -11,7 +11,8 @@
 #' @param sig.level specifies the significant level for deciding a significant relation between variables default is 0.05.
 #' @param showSig returns names of the significant variables at the specifies significant level
 #' @return A data frame of correlation, p-values and their t-values
-
+#' @title Correlation exploration using vectors or data frames
+#' @export
 mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
   if(!is.data.frame(df)){
     d <- data.frame(df)

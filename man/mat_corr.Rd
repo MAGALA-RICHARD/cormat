@@ -2,8 +2,7 @@
 % Please edit documentation in R/mat_corr.R
 \name{mat_corr}
 \alias{mat_corr}
-\title{mat_corr
-generate matrix table of significant variables}
+\title{Correlation exploration using vectors or data frames}
 \usage{
 mat_corr(y, df, showSig = F, sig.level = 0.05)
 }
@@ -20,6 +19,10 @@ mat_corr(y, df, showSig = F, sig.level = 0.05)
 A data frame of correlation, p-values and their t-values
 }
 \description{
+mat_corr
+generate matrix table of significant variables
+}
+\details{
 This function explores the correlation of a variables with multiple dependent variables.
 It takes on an array or a data frame. if a vector is passed to the function it will be converted into a data frame
 Check if all the variables are numeric and not strings
