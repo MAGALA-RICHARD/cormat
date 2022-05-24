@@ -17,25 +17,27 @@
 #' @author Richard Magala, 2022
 #' @return  a matrix of plots
 plot_matr <- function(y, df, nrow =2, ncol= 2, sig.level = 0.05, ylab = ""){
-  if(!is.data.frame(df)){
+  if(is.data.frame(df) == FALSE){
     d <- data.frame(df)
+  }else{
+    d = df 
   }
-  pvalues <- rep(NA, ncol(df))
-  for ( i in 1:ncol(df)){
-    test.result <- cor.test(y, df[, i])
+  pvalues <- rep(NA, ncol(d))
+  for ( i in 1:ncol(d)){
+    test.result <- cor.test(y, d[, i])
     pvalues[i] = round(test.result$p.value, 4)
   }
   par(mfrow = c(nrow, ncol))
   # plot significant results
   sig.variable <- which(pvalues < sig.level)
-  df <- df[, sig.variable]
+  dff <- d[, sig.variable]
   if (length(sig.variable)> 0) {
-    for ( i in 1:ncol(df)){
-     a <- names(df)
-      plot(df[, i], y, col = "blue", pch = 2, xlab = colnames(df)[i], ylab = paste0(ylab , " is the selected", collpase = " "))
-      text(mean(df[,i]), median(y), label ="Fitted line")
-      data.temp  <- data.frame("response" =y, "x"= df[,i])
-      abline(coef(lm(response ~ x, data= data.temp)), col = "green4")
+    for ( i in 1:ncol(dff)){
+     a <- colnames(dff)
+      plot(dff[, i], y, col = "blue", pch = 15, xlab = colnames(dff)[i], ylab = ylab)
+      text(mean(dff[,i]), median(y), label ="Fitted line")
+      data.temp  <- data.frame("response" =y, "x"= dff[,i])
+      abline(coef(lm(response ~ x, data= data.temp)), col = "red")
       a
     }
   } else {

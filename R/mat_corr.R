@@ -14,16 +14,19 @@
 #' @title Correlation exploration using vectors or data frames
 #' @export
 mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
-  if(!is.data.frame(df)){
+  if(is.data.frame(df) == FALSE){
     d <- data.frame(df)
+  }else{
+    d = df 
   }
+    
   matt <- matrix(NA, nrow =ncol(d), ncol = 3, byrow= T)
   for ( i in 1:ncol(d)){
-    test.result <- cor.test(y, df[, i])
+    test.result <- cor.test(y, d[, i])
     matt[i ,1] = round(test.result$p.value, 4)
     matt[i,2] <- round(test.result$estimate, 3)
     matt[i ,3] <- round(test.result$statistic, 3)
-    rownames(matt) <- names(d)
+    rownames(matt) <- as.vector(colnames(df))
     colnames(matt) <- c("P-value", "cor", "t-value")
 
   }
