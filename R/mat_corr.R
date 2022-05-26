@@ -35,6 +35,7 @@ mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
     return(matt)
   }else{
     p =  which(matt[,1] < sig.level)
-    return(list(p))
+    pp <- matt[p,]
+    return(list(pp))
   }
 }
