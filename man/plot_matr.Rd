@@ -31,3 +31,6 @@ This function allows you to visualize the correlated variables with the selected
 It takes on an array or a data frame. if a vector is passed to the function it will be converted into a data frame
 Check if all the variables are numeric and not strings
 }
+\author{
+Richard Magala, 2022
+}
