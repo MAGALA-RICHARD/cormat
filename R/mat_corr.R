@@ -18,6 +18,7 @@ mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
     d <- data.frame(df)
   }else{
     d = df 
+    
   }
     
   matt <- matrix(NA, nrow =ncol(d), ncol = 3, byrow= T)
@@ -27,7 +28,7 @@ mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
     matt[i,2] <- round(test.result$estimate, 3)
     matt[i ,3] <- round(test.result$statistic, 3)
     rownames(matt) <- as.vector(colnames(df))
-    colnames(matt) <- c("P-value", "cor", "t-value")
+    colnames(matt) <- c("P-value", "correlaton coefficient", "t-value")
 
   }
 
@@ -36,6 +37,6 @@ mat_corr <- function(y, df, showSig = F, sig.level = 0.05) {
   }else{
     p =  which(matt[,1] < sig.level)
     pp <- matt[p,]
-    return(list(pp))
+    return(pp)
   }
 }

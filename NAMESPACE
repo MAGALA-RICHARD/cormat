@@ -2,4 +2,5 @@
 
 export(likert_scale_conversion)
 export(mat_corr)
+export(mult_regression)
 export(plot_matr)
